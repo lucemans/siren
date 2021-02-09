@@ -1,0 +1,155 @@
+/* Global Page Styling */
+html,
+body {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+}
+* {
+    object-fit: contain;
+    box-sizing: border-box;
+}
+
+/* Preset Class-Based styling for quick access */
+.flex {
+    display: flex;
+}
+.flex.column {
+    flex-direction: column;
+}
+.flex.center {
+    justify-content: center;
+    align-items: center;
+}
+.flex.stretch {
+    justify-content: stretch;
+    align-items: center;
+}
+
+/* Hello World Page Styling */
+.app {
+    margin: 0;
+    font-size: 1.5em;
+    flex-grow: 1;
+    background-color: #222;
+    color: white;
+    width: auto;
+    height: auto;
+}
+pre .blue {
+    color: #51ccff;
+}
+pre .luc {
+    color: #222;
+    background-color: #51ccff;
+    width: fit-content;
+}
+
+#root {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    padding: 1em;
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+    background-color: #222;
+    &.act {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        position: absolute;
+    }
+}
+
+.act {
+    animation: rainbow 4s ease infinite;
+    background: linear-gradient(
+        124deg,
+        #ff2400,
+        #e81d1d,
+        #e8b71d,
+        #e3e81d,
+        #1de840,
+        #1ddde8,
+        #2b1de8,
+        #dd00f3,
+        #dd00f3
+    );
+    background-size: 1800% 1800%;
+}
+
+.app {
+    // font-size: 1w;
+    padding: 1rem;
+    font-size: 1.1rem;
+    .selection {
+        width: fit-content;
+        min-width: 14em;
+        margin: 1em;
+
+        .label {
+            padding: 1em;
+            font-weight: bolder;
+        }
+        .option {
+            padding: 1em;
+            background: rgba(255, 255, 255, 0.1);
+            user-select: none;
+            cursor: pointer;
+
+            &.selected {
+                background: rgba(255, 255, 255, 0.5);
+                cursor: default;
+            }
+            &.act {
+                overflow: hidden;
+                background: transparent;
+                position: relative;
+                span {
+                    z-index: 1;
+                    position: relative;
+                }
+                .inside {
+                    z-index: 0;
+                    content: " ";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    animation: rainbow 4s ease infinite;
+                    background: linear-gradient(
+                        124deg,
+                        #ff2400,
+                        #e81d1d,
+                        #e8b71d,
+                        #e3e81d,
+                        #1de840,
+                        #1ddde8,
+                        #2b1de8,
+                        #dd00f3,
+                        #dd00f3
+                    );
+                    background-size: 1800% 1800%;
+                }
+            }
+        }
+    }
+}
+
+@keyframes rainbow {
+    0% {
+        background-position: 0% 82%;
+    }
+    50% {
+        background-position: 100% 19%;
+    }
+    100% {
+        background-position: 0% 82%;
+    }
+}
